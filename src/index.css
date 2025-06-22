@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Gradient from #1d7d69 to #21b095 */
+    --primary: 166 69% 41%; /* #21b095 */
+    --primary-foreground: 166 30% 95%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217.2 32.6% 7.5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217.2 32.6% 7.5%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 166 69% 50%; /* brightened version of #21b095 */
+    --primary-foreground: 166 100% 10%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 75.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 166 69% 50%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 166 69% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 166 69% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary/90 rounded-md px-4 py-2 transition-all;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.card-hover {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Improved dark mode text visibility */
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800 {
+  @apply text-gray-300;
+}
+
+/* Improved card visibility in dark mode */
+.dark .bg-white {
+  @apply bg-card;
+}
+
+.dark .bg-gray-50 {
+  @apply bg-muted;
+}
+
+.dark .bg-gray-100 {
+  @apply bg-muted;
+}
+
+/* Improved form field visibility in dark mode */
+.dark input,
+.dark textarea,
+.dark select {
+  @apply bg-input border-border text-foreground placeholder:text-muted-foreground;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  @apply ring-ring border-ring;
+}
+
+/* Improved border visibility in dark mode */
+.dark .border {
+  @apply border-border;
+}
+
+.dark .border-gray-200,
+.dark .border-gray-300 {
+  @apply border-border;
+}
+
+/* Button improvements in dark mode */
+.dark .hover\:bg-gray-100:hover {
+  @apply bg-accent;
+}
+
+.dark .hover\:bg-gray-50:hover {
+  @apply bg-accent;
+}
+
+/* Navigation improvements */
+.dark nav a:hover {
+  @apply text-primary;
+}
+
+/* Card hover effects in dark mode */
+.dark .card-hover:hover {
+  @apply bg-accent/50;
+}
+
+/* Table improvements in dark mode */
+.dark table {
+  @apply border-border;
+}
+
+.dark th {
+  @apply bg-muted text-muted-foreground;
+}
+
+.dark td {
+  @apply border-border;
+}
+
+/* Dropdown and popover improvements */
+.dark .bg-popover {
+  background-color: hsl(var(--popover));
+}
+
+/* Modal and dialog improvements */
+.dark .bg-background {
+  background-color: hsl(var(--background));
+}
